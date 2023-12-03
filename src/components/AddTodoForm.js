@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../redux/todoSlice";
+// import { addTodo } from "../redux/todoSlice";
+import { addTodoAsync } from "../redux/todoSlice";
 
 const AddTodoForm = () => {
   const [value, setValue] = useState("");
@@ -12,7 +13,8 @@ const AddTodoForm = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     console.log("user entered: " + value);
-    dispatchEvent(addTodo({
+    // dispatchEvent(addTodo({ //this part is when we are doing plain redux without Thunk/api midlware
+    dispatchEvent(addTodoAsync({
 		title: value,
 	}));
   };

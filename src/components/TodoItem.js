@@ -1,25 +1,35 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteTodo, toggleComplete } from "../redux/todoSlice";
+import { deleteTodo, toggleComplete, toggleCompleteAsync, deleteTodoAsync } from "../redux/todoSlice";
 
 const TodoItem = ({ id, title, completed }) => {
   const dispatch = useDispatch();
 
   const handleCompleteClick = () => {
-    dispatch(
-      toggleComplete({
-        id: id,
-        completed: !completed,
-      })
-    );
+	//without api call with thunk midlware
+    // dispatch(
+    //   toggleComplete({
+    //     id: id,
+    //     completed: !completed,
+    //   })
+    // );
+	dispatch(toggleCompleteAsync({
+		id: id,
+		completed: !completed
+	}))
   };
 
   const handleDeleteClick = () => {
-    dispatch(
-      deleteTodo({
-        id: id,
-      })
-    );
+    // dispatch(
+    //   deleteTodo({
+    //     id: id,
+    //   })
+    // );
+	dispatch(
+		deleteTodoAsync({
+			id: id,
+		})
+	)
   };
 
   return (

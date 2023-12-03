@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 const TotalCompleteItems = () => {
   // const TotalCompletedTodos = useSelector((state) => state.todos).filter((todos) => todos.completed == true).length
   const TotalCompletedTodos = useSelector((state) =>
-    state.todos.filter((todos) => todos.completed == true)
+    state.todos.filter((todos) => todos.completed === true)
   );
 
   return (
